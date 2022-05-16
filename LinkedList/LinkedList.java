@@ -8,6 +8,28 @@ class LinkedListNode<T> {
     	}
 	}
 
+public static LinkedListNode<Integer> removeDuplicates(LinkedListNode<Integer> head) {
+		
+        if(head == null || head.next == null)
+            return head;
+ 
+        LinkedListNode<Integer> prev = head;    
+        LinkedListNode<Integer> p = head.next;
+ 
+        while(p != null){
+            if(p.data.compareTo(prev.data) == 0)//compare non primitive dataType like this not using == (VERY IMPORTANT THING TO NOTE)
+            {
+                prev.next = p.next;
+                p = p.next;
+            }
+            else{
+                prev = p;
+                p = p.next; 
+            }
+        }
+       return head;
+	}
+
 
 public static LinkedListNode<Integer> insert(LinkedListNode<Integer> head, int pos, int data){
 		//Your code goes here
