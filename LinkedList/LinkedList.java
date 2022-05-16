@@ -6,7 +6,46 @@ class LinkedListNode<T> {
     	public LinkedListNode(T data) {
         	this.data = data;
     	}
+}
+
+
+public static LinkedListNode<Integer> appendLastNToFirst(LinkedListNode<Integer> head, int n) {
+		
+        if(head == null)
+            return null;
+        
+        if(n == 0)
+        return head;
+        
+        LinkedListNode<Integer> newTail = null;
+        LinkedListNode<Integer> newHead = null;
+        LinkedListNode<Integer> tail = head;
+        
+        int l = length(head);
+        int count =1;
+        n = n%l;
+        
+        while(tail.next != null){
+            
+            if(count == l-n){
+                newTail = tail;
+            }
+            
+            if(count == l-n+1){
+                
+                newHead = tail;
+            }
+            
+            tail = tail.next;
+            count++;
+        }
+        
+        newTail.next = null;
+        tail.next = head;
+        
+        return newHead;
 	}
+
 
 public static LinkedListNode<Integer> removeDuplicates(LinkedListNode<Integer> head) {
 		
