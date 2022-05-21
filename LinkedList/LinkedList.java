@@ -9,6 +9,30 @@ class LinkedListNode<T> {
 }
 
 
+public static LinkedListNode<Integer> mergeSort(LinkedListNode<Integer> head) {
+		
+        if(head == null || head.next == null ){
+            return head;
+        }
+        
+        
+             //find mid point or break tha linked List
+         	LinkedListNode<Integer> mid = midLL(head);
+        
+         LinkedListNode<Integer> left = head;
+        LinkedListNode<Integer> right = mid.next;
+         mid.next = null;
+            
+        left = mergeSort(left);
+        right = mergeSort(right);
+        
+        LinkedListNode<Integer> result = merge(left,right);
+        
+        return result;
+        
+	}
+
+
  public static LinkedListNode<Integer> mergeTwoSortedLinkedLists(LinkedListNode<Integer> head1, LinkedListNode<Integer> head2) {
         //Your code goes here
         
