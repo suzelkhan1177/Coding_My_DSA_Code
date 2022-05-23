@@ -8,6 +8,36 @@ class LinkedListNode<T> {
     	}
 }
 
+public static LinkedListNode<Integer> swapNodes(LinkedListNode<Integer> head, int i, int j) {
+		
+       if(head == null){
+           return null;
+       }
+        
+        if(i==j){
+            return head;
+        }
+        
+        LinkedListNode<Integer> tempH = head;
+        LinkedListNode<Integer> node1 = head;
+         LinkedListNode<Integer> node2 = head;
+        
+        for(int a=0; a<i; a++){
+            node1 = node1.next;
+        }
+        
+        for(int b=0; b<j; b++){
+            node2 = node2.next;
+        }
+        
+        int temp = node1.data;
+        node1.data = node2.data;
+        node2.data = temp;
+        
+        
+        return tempH;
+	}
+
 public static LinkedListNode<Integer> skipMdeleteN(LinkedListNode<Integer> head, int m, int n) {
 		
           if(head==null)
