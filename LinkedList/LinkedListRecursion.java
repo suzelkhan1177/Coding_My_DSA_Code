@@ -37,6 +37,17 @@ public class LinkedListRecursion{
         return head;
     }
     
+ public static LinkedListNode<Integer> reverse(LinkedListNode<Integer> head) {
+      
+     if (head == null || head.next == null) 
+         return head;
+       
+    LinkedListNode<Integer> temp = rev(head.next);
+    head.next.next = head;
+    head.next = null;
+    return temp;
+
+	}
     
     public static void printRec(LinkedListNode<Integer> head){
     	
