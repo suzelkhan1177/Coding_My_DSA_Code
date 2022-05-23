@@ -9,6 +9,56 @@ class LinkedListNode<T> {
 }
 
 
+public static LinkedListNode<Integer> evenAfterOdd(LinkedListNode<Integer> head) {
+		LinkedListNode<Integer> oddHead = null;
+        LinkedListNode<Integer> oddTail = null;
+        
+        LinkedListNode<Integer> evenHead = null;
+        LinkedListNode<Integer> evenTail = null;
+        
+        LinkedListNode<Integer> temp = head;
+        
+        while(temp != null){
+            
+              if(temp.data%2 == 0){
+                  
+                    if(evenHead == null){
+                      evenHead = temp;
+                        evenTail = evenHead;
+                  }else{
+                      evenTail.next = temp;
+                      evenTail = evenTail.next; 
+                  }
+                  
+              }else{
+                  
+                  if(oddHead == null){
+                      oddHead = temp;
+                      oddTail = oddHead;
+                  }else{
+                      oddTail.next = temp;
+                      oddTail = oddTail.next; 
+                  }
+              }
+            temp = temp.next;
+        }
+        
+       if(oddHead == null){
+           return evenHead;
+       }
+        
+      if(evenHead == null){
+          return oddHead;
+      }
+        
+        oddTail.next = evenHead;
+        evenTail.next = null;
+        head = oddHead;
+        return head;
+        
+	}
+
+
 public static LinkedListNode<Integer> mergeSort(LinkedListNode<Integer> head) {
 		
         if(head == null || head.next == null ){
