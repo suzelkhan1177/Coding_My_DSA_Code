@@ -106,6 +106,26 @@ public static LinkedListNode<Integer> reverseLinkedListRec(LinkedListNode<Intege
 
     return null;
 }
+	
+	public static int findNodeRec(LinkedListNode<Integer> head, int n) {
+  
+           if(head == null){
+               return -1;
+           }
+        
+        
+           if(head.data == n)
+               return 0;
+
+        
+           int count = findNodeRec(head.next, n);
+     
+       
+       if(count!=-1)
+         return 1+count;
+        else
+        return -1;
+	}
   
     
     public static void main(String[] args) throws NumberFormatException, IOException {
