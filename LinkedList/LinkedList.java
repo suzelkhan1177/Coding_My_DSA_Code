@@ -8,6 +8,46 @@ class LinkedListNode<T> {
     	}
 }
 
+public static LinkedListNode<Integer> skipMdeleteN(LinkedListNode<Integer> head, int m, int n) {
+		
+          if(head==null)
+            return head;
+          if(m==0)
+            return null;
+        if(n==0)
+            return head;
+      
+         LinkedListNode<Integer> curr = head ,t;
+          int count;
+        
+        while(curr != null){
+            
+            for(count = 1; count < m && curr != null; count++){
+                curr = curr.next;
+            }
+            
+            if(curr == null)
+                return head;
+            
+              t = curr.next;
+            for(count =1; count <=n && t != null; count++){
+                
+                   LinkedListNode<Integer> temp = t;
+                t = t.next;
+            }
+            
+            
+            curr.next = t;
+            curr = t;
+             
+        }
+        
+      
+        
+        return head;
+        
+	}
+
 
 public static LinkedListNode<Integer> evenAfterOdd(LinkedListNode<Integer> head) {
 		LinkedListNode<Integer> oddHead = null;
