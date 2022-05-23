@@ -8,6 +8,42 @@ class LinkedListNode<T> {
     	}
 }
 
+public static LinkedListNode<Integer> kReverse(LinkedListNode<Integer> head, int k) {
+		
+          if(head == null){
+              return null;
+          }
+        
+        if(k==0)
+        return head;
+        
+         LinkedListNode<Integer> curr = head;
+         LinkedListNode<Integer> next = null;
+        LinkedListNode<Integer> prev = null;
+        
+        int count =0;
+        
+        while(count < k && curr != null){
+            
+            next = curr.next;
+            curr.next = prev;
+            
+            prev = curr;
+            curr = next;
+            
+            count++;
+        }
+        
+        
+        if(next != null){
+            head.next = kReverse(next, k);
+        }
+            
+        
+        return prev;
+	}
+
+
 public static LinkedListNode<Integer> swapNodes(LinkedListNode<Integer> head, int i, int j) {
 		
        if(head == null){
