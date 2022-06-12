@@ -8,6 +8,33 @@ class LinkedListNode<T> {
     	}
 }
 
+
+	public static boolean isPalindrome(LinkedListNode<Integer> head) {
+		//Your code goes here
+        
+        if(head == null || head.next == null) {
+		 return true;
+	 }
+        
+        LinkedListNode<Integer>  first = head;
+        LinkedListNode<Integer> mid = MiddleElement(head);
+        LinkedListNode<Integer> second = reverseRecursion(mid.next);
+        
+        while(second != null){
+            
+               if(first.data != second.data){
+                   return false;
+               }
+            
+              first = first.next;
+              second = second.next;
+        }
+        
+        return true;
+ 
+	}
+
+
 public static LinkedListNode<Integer> kReverse(LinkedListNode<Integer> head, int k) {
 		
           if(head == null){
