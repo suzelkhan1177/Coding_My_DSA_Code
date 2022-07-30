@@ -87,6 +87,23 @@ public class PalindromPair {
 	
 	private boolean CheckRemaningBranch(TrieNode root , String word) {
 		
+		if(root.isTerminal) {
+			if(checkWordPalindrom(word)) {
+				return true;
+			}
+		}
+		
+		for(TrieNode child : root.children) {
+			if(child == null) {
+				continue;
+			}
+			
+			String firstword = word +  child.data;
+			if(CheckRemaningBranch(child, word)) {
+				return true;
+			}
+		}
+		
 		return false;
 	}
 	
