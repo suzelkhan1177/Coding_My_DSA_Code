@@ -1,23 +1,12 @@
-package Full_Test_1;
+package Binary_Serch_Tree;
+
+import java.util.ArrayList;
 
 
-import java.util.*;
-class BinaryTreeNode<T>{                                                                                                                                                              
-    
-	 T data;                                                                                                                                                                          
-	 BinaryTreeNode<T> left;                                                                                                                                                          
-	 BinaryTreeNode<T> right;                                                                                                                                                         
-	                                                                                                                                                                                  
-	 public BinaryTreeNode(T data) {                                                                                                                                                  
-		 this.data = data;                                                                                                                                                            
-		 left = null;                                                                                                                                                                 
-		 right = null;                                                                                                                                                                
-	 }                                                                                                                                                                                
-}    
 
-public class Merge_Two_BSTs {
-
-	   public static void sortInOrder(BinaryTreeNode < Integer >  root, ArrayList<Integer> arr){
+public class Merge_Two_BST {
+ 
+	  public static void sortInOrder(BinaryTreeNode < Integer >  root, ArrayList<Integer> arr){
 	        if(root != null){
 	            sortInOrder(root.left, arr);
 	            arr.add(root.data);
