@@ -1,4 +1,6 @@
-	//create Node class
+public class DoubliLinkedList {
+
+//create Node class
  class Node<T>{
 		
 		T data;
